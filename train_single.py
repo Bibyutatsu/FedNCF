@@ -51,7 +51,9 @@ class NCFTrainer:
 		self.loader = None
 		self.initialize_loader()
 		self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-		self.ncf = NeuralCollaborativeFiltering(self.ui_matrix.shape[0], self.ui_matrix.shape[1], self.latent_dim).to(self.device)
+		self.ncf = NeuralCollaborativeFiltering(self.ui_matrix.shape[0], 
+                                                self.ui_matrix.shape[1], 
+                                                self.latent_dim).to(self.device)
 
 	def initialize_loader(self):
 		self.loader = MatrixLoader(self.ui_matrix)
